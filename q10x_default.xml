@@ -5,18 +5,22 @@
   <remote  name="github"
            fetch="https://github.com/" />
 
-  <!-- Gitlab remote -->
-  <remote  name="gitlab"
-           fetch="https://gitlab.com/" />
-
-  <!-- Alternate remote -->
-  <remote  name="alternate"
-           fetch="https://git.dirtyunicorns.com/DirtyUnicorns/" />
-
   <!-- DU remote -->
   <remote  name="du"
            revision="q10x"
            fetch="https://github.com/DirtyUnicorns/" />
+
+    <!--Track Lineage--> 
+    <remote  name="los"
+           revision="lineage-17.1"
+           fetch="https://github.com/LineageOS/" />
+
+    <remote name="mod"
+    	   revision="q10x"
+    	   fetch="https://github.com/G-H-O-5-T" />
+
+
+
 
   <!-- DU REPOS -->
 
@@ -39,7 +43,7 @@
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
   <project path="development" name="android_development" remote="du" />
-  <project path="manifest" name="android_manifest" remote="du" />
+  <project path="manifest" name="android_manifest" remote="mod" />
   <project path="platform_testing" name="android_platform_testing" remote="du" />
 
   <!-- External -->
@@ -69,17 +73,24 @@
     <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
     <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8998/Android.mk" />
   </project>
-  <project path="hardware/qcom-caf/msm8996/audio" name="android_hardware_qcom_audio" remote="du" revision="q10x-caf-8996" />
+  <!-- project path="hardware/qcom-caf/msm8996/audio" name="android_hardware_qcom_audio" remote="du" revision="q10x-caf-8996" /-->
   <project path="hardware/qcom-caf/msm8998/audio" name="android_hardware_qcom_audio" remote="du" revision="q10x-caf-8998" />
-  <project path="hardware/qcom-caf/msm8996/display" name="android_hardware_qcom_display" remote="du" revision="q10x-caf-8996" />
+  <!--project path="hardware/qcom-caf/msm8996/display" name="android_hardware_qcom_display" remote="du" revision="q10x-caf-8996" /-->
   <project path="hardware/qcom-caf/msm8998/display" name="android_hardware_qcom_display" remote="du" revision="q10x-caf-8998" />
-  <project path="hardware/qcom-caf/msm8996/media" name="android_hardware_qcom_media" remote="du" revision="q10x-caf-8996" />
+  <!--project path="hardware/qcom-caf/msm8996/media" name="android_hardware_qcom_media" remote="du" revision="q10x-caf-8996" /-->
   <project path="hardware/qcom-caf/msm8998/media" name="android_hardware_qcom_media" remote="du" revision="q10x-caf-8998" />
-  <project path="hardware/qcom-caf/wlan" name="android_hardware_qcom_wlan" remote="du" revision="q10x-caf" />
-  <project path="hardware/qcom/sdm845/display" name="android_hardware_qcom_sdm845_display" remote="du" />
+  <!--project path="hardware/qcom-caf/wlan" name="android_hardware_qcom_wlan" remote="du" revision="q10x-caf" /-->
+  <!--project path="hardware/qcom/sdm845/display" name="android_hardware_qcom_sdm845_display" remote="du" />
   <project path="hardware/qcom/sm8150/display" name="android_hardware_qcom_sm8150_display" remote="du" />
   <project path="hardware/qcom/sm8150/gps" name="android_hardware_qcom_sm8150_gps" remote="du" />
-  <project path="hardware/qcom/sm8150/media" name="android_hardware_qcom_sm8150_media" remote="du" />
+  <project path="hardware/qcom/sm8150/media" name="android_hardware_qcom_sm8150_media" remote="du" /-->
+
+  <project path="hardware/qcom-caf/msm8996/audio" name="android_hardware_qcom_audio" remote="los" revision="lineage-17.1-caf-msm8996" />
+  <project path="hardware/qcom-caf/msm8996/display" name="android_hardware_qcom_display" remote="los" revision="lineage-17.1-caf-msm8996" />
+  <project path="hardware/qcom-caf/msm8996/media" name="android_hardware_qcom_media" remote="los" revision="lineage-17.1-caf-msm8996" />
+  <project path="hardware/qcom-caf/wlan" name="android_hardware_qcom_wlan" remote="los" revision="lineage-17.1-caf" />
+  <project path="hardware/qcom-caf/thermal" name="android_hardware_qcom_thermal" remote="los" revision="lineage-17.1" />
+
 
   <!-- Packages -->
   <project path="packages/apps/Bluetooth" name="android_packages_apps_Bluetooth" remote="du" />
@@ -100,6 +111,12 @@
   <!-- Prebuilts -->
   <project path="prebuilts/build-tools" name="android_prebuilts_build-tools" remote="du" />
 
+  <!--Qcom Sepolicy-->
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="los" />
+  <project path="device/qcom/sepolicy-legacy-u" name="android_device_qcom_sepolicy" remote="los" revision="lineage-17.1-legacy-um" />
+
+
+
   <!-- System -->
   <project path="system/bt" name="android_system_bt" remote="du" />
   <project path="system/core" name="android_system_core" remote="du" />
@@ -119,5 +136,16 @@
   <project path="vendor/extras" name="android_vendor_extras" remote="du" />
   <project path="vendor/support" name="android_vendor_support" remote="du" />
   <project path="vendor/themes" name="android_vendor_themes" remote="du" />
+
+  <project path="vendor/codeaurora/telephony" name="android_vendor_codeaurora_telephony" remote="los" />
+  <project path="vendor/qcom/opensource/audio" name="android_vendor_qcom_opensource_audio" remote="los" />
+  <project path="vendor/qcom/opensource/cryptfs_hw" name="android_vendor_qcom_opensource_cryptfs_hw" remote="los" />
+  <project path="vendor/qcom/opensource/fm-commonsys" name="android_vendor_qcom_opensource_fm-commonsys" remote="los" />
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" remote="los" />
+  <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" remote="los" />
+  <project path="vendor/qcom/opensource/interfaces" name="android_vendor_qcom_opensource_interfaces" remote="los" />
+  <project path="vendor/qcom/opensource/libfmjni" name="android_vendor_qcom_opensource_libfmjni" remote="los" />
+  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" remote="los" />
+  <project path="vendor/qcom/opensource/thermal-engine" name="android_vendor_qcom_opensource_thermal-engine" remote="los" />
 
 </manifest>
